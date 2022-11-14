@@ -1,7 +1,6 @@
 using ASPNETCoreMVC.Domain;
 using ASPNETCoreMVC.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
 using Task = ASPNETCoreMVC.Domain.Task;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +10,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer
 ("Data Source=(local); Database=Task; Persist Security Info=False; MultipleActiveResultSets=True; Trusted_Connection=True; Encrypt = False"));
 builder.Services.AddTransient<TaskRepository>();
-//builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("Task"));
-//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
